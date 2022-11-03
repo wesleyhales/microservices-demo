@@ -12,18 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-- base
-components:
-# - components/cymbal-branding
-# - components/google-cloud-operations
-# - components/memorystore
-# - components/network-policies
-# - components/service-accounts
-# - components/spanner
-# - components/container-images-tag
-# - components/container-images-tag-suffix
-# - components/container-images-registry
-# - components/native-grpc-health-check
+ROOT=$(pwd)
+sed -i.tmp  "s/project_id/gcp_project_id/" $ROOT/terraform/terraform.tfvars
